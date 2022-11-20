@@ -1,0 +1,30 @@
+class Solution 
+{
+    public boolean isPalindrome(String s) 
+    {
+        int indexFromBeginning = 0;
+        int indexFromEnd = s.length()-1;
+        while(indexFromBeginning<indexFromEnd)
+        {
+            Character start = s.charAt(indexFromBeginning);
+            Character end = s.charAt(indexFromEnd);
+            if(!Character.isLetterOrDigit(start))
+            {
+                indexFromBeginning++;
+                continue;
+            }
+            if(!Character.isLetterOrDigit(end))
+            {
+               indexFromEnd--;
+                continue;
+            }
+            if(Character.toLowerCase(start) != Character.toLowerCase(end))
+            {
+                return false;
+            }
+            indexFromBeginning++;
+            indexFromEnd--;
+        }
+        return true;
+    }
+}
